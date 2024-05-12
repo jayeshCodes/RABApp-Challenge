@@ -1,0 +1,93 @@
+.login-container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 40%;
+    box-shadow: 10%;
+    border-radius: 20px; /* Add rounded border */
+    border: 1px solid #ccc; /* Add border for better visibility */
+}
+
+
+.heading{
+    display: flex;
+    flex: 1;
+}
+
+.username-div{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.password-div{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+
+h5{
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    padding: 0;
+}
+
+input{
+
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-button-div{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Add cursor pointer for better UX */
+    border-top-left-radius: 20px; /* Add rounded border */
+    border-top-right-radius: 20px; /* Add rounded border */
+    border: 1px solid #ccc; /* Add border for better visibility */
+}
+
+.login-button-div:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+}  
+
+.signup-button-div{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Add cursor pointer for better UX */
+    border-bottom-left-radius: 20px; /* Add rounded border */
+    border-bottom-right-radius: 20px; /* Add rounded border */
+    border: 1px solid #ccc; /* Add border for better visibility */
+}
+.signup-button-div:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+}  

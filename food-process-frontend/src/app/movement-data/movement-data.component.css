@@ -1,0 +1,132 @@
+
+
+.table-container {
+    flex: 2;
+    overflow: auto;
+    margin-right: 2%;
+    margin-left: 2%;
+  }
+  
+  .table-container table thead {
+      position: sticky;
+      top: 0;
+      background-color: #fff; /* Background color for table header */
+      z-index: 1; /* Ensure table headers appear above table body */
+    }
+  
+  .crud-container {
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  @media (max-width: 768px) {
+    .table-container {
+      max-height: 50vh; /* Adjust the max-height for smaller screens */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .table-container {
+      max-height: 70vh; /* Adjust the max-height for larger screens */
+    }
+  }
+  
+  .button-stack {
+    width: 50%;
+    justify-content:baseline;
+    align-items:flex-end;
+  }
+  
+  .crud-container{
+      display: flex;
+      flex-direction: row;
+  }
+  
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Add cursor pointer for better UX */
+  }
+  
+  .heading {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .filler {
+    display: flex;
+    flex: 1;
+  }
+  
+  .custom-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Add padding for better click/tap area */
+  }
+  
+  .navigation:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+  }
+  
+  .custom-button h5,
+  .custom-button i {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
+  
+  h5 {
+    margin: 0;
+  }
+  
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .crud-controls {
+    margin-top: auto; 
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+  }
+  
+ .addButton, .deleteButton, .updateButton{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+ }
+
+ .addButton:hover, .deleteButton:hover, .updateButton:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+  }  
+
+  .helper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .helper span{
+    margin: 1px;
+  }
+
+  i{
+    margin-left: 2%;
+    font-size: 20px;
+  }

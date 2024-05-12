@@ -1,0 +1,79 @@
+.login-container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 40%;
+    box-shadow: 10%;
+    border-radius: 20px; /* Add rounded border */
+    border: 1px solid #ccc; /* Add border for better visibility */
+}
+
+
+.heading{
+    display: flex;
+    flex: 2;
+}
+
+.username-div{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.password-div{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+
+
+input{
+
+}
+
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    width: 100%;
+}
+
+
+.signup-button-div{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Add cursor pointer for better UX */
+    border-radius: 20px; /* Add rounded border */
+    border: 1px solid #ccc; /* Add border for better visibility */
+}
+.signup-button-div:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+}  
+.signup-button-div.disabled {
+    pointer-events: none; /* Disable pointer events */
+    opacity: 0.5; /* Optionally reduce opacity to indicate disabled state */
+    /* Add any other styles to visually indicate disabled state */
+  }
+  h5{
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    padding: 0;
+}
+  

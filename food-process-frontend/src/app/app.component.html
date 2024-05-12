@@ -1,0 +1,30 @@
+<div class="main-container" >
+  <div class="navbar-container" *ngIf="isLoggedIn()">
+    <div class="brand">
+      <h4 style="color: white; margin-left: 3%">RAB App</h4>
+    </div>
+    <div class="navigation">
+      <div
+        class="farm-button"
+        [class.active]="isActive(['/farm-data', 'farm-map'])"
+        (click)="navigateToFarm()"
+      >
+        <h5 style="color: white">Farm Data</h5>
+      </div>
+      <div
+        class="movement-button"
+        [class.active]="isActive(['/movement-data', 'movement-map'])"
+        (click)="navigateToMovement()"
+      >
+        <h5 style="color: white">Movement Data</h5>
+      </div>
+    </div>
+    <div class="logout" (click)="logout()">
+      <h5 style="color: white">Logout</h5>
+      <i class="bi bi-box-arrow-right" style="color: white;"></i>
+    </div>
+  </div>
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="login-container">
+    <div class="login-form">
+      <div class="heading">
+        <h2>RAB App</h2>
+      </div>
+      <div class="username-div">
+        <form [formGroup]="registerForm">
+          <div class="mb-3">
+            <h5 for="exampleInputEmail1" class="form-label"
+              >Name</h5
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              aria-describedby="emailHelp"
+              formControlName = "name"
+            />
+          </div>
+          <div class="mb-3">
+            <h5 for="exampleInputEmail1" class="form-label"
+              >Email</h5
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              aria-describedby="emailHelp"
+              formControlName = "email"
+            />
+
+          </div>
+          <div class="mb-3">
+            <h5 for="exampleInputEmail1" class="form-label"
+              >Password</h5
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName = "password"
+            />
+
+          </div>
+
+          <div class="mb-3">
+            <h5 for="exampleInputPassword1" class="form-label">Confirm password</h5>
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              formControlName = "confirmPassword"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="buttons-container">
+        <div class="signup-button-div" (click)="onSubmit()">
+          <h5>Sign Up!</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  

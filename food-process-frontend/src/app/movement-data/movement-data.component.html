@@ -1,0 +1,180 @@
+<!-- Movement Data Component HTML -->
+<div class="main-container">
+  <!-- CRUD Container -->
+  <div class="crud-container">
+    <div class="filler"></div>
+    <!-- Heading -->
+    <div class="heading">
+      <h4>Transaction Data</h4>
+    </div>
+    <!-- Navigation -->
+    <div class="navigation" (click)="navigateToMovementMap()">
+      <div class="custom-button">
+        <h5>Map View</h5>
+        <i class="bi bi-map-fill"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Farm Table -->
+  <div class="table-container">
+    <table class="table table-striped table-striped-columns table-hover">
+      <!-- Table Headers -->
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Company Name</th>
+          <th scope="col">Species</th>
+          <th scope="col">Origin Premise ID</th>
+          <th scope="col">Destination Premise ID</th>
+          <th scope="col">Number of Units Transferred</th>
+          <th scope="col">Movement Reason</th>
+          <th scope="col">Shipment Start Date</th>
+        </tr>
+      </thead>
+      <!-- Table Body -->
+      <tbody>
+        <!-- Iterate over movements -->
+        <tr
+          *ngFor="let movement of movements; let i = index"
+          (click)="deleteRow(movement.id)"
+          [class.clicked]="deleteClicked"
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ movement.accountCompany }}</td>
+          <td>{{ movement.newSpecies }}</td>
+          <td>{{ movement.newOriginPremId }}</td>
+          <td>{{ movement.newDestinationPremId }}</td>
+          <td>{{ movement.newNumItemsMoved }}</td>
+          <td>{{movement.newMovementReason}}</td>
+          <td>{{ formatDate(movement.newShipmentsStartDate) }}</td>
+        </tr>
+        <!-- Add Row for new movement -->
+        <tr *ngIf="addRowClicked">
+          <td></td>
+          <td>
+            <!-- Use ngModel for two-way binding -->
+            <select
+              class="form-select"
+              id="accountCompany"
+              [(ngModel)]="movement.accountCompany"
+              name="accountCompany"
+              required
+            >
+              <option *ngFor="let company of companyNames" [value]="company">{{ company }}</option>
+            </select>
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="movement.newSpecies"
+              name="newSpecies"
+              required
+            />
+          </td>
+          <td>
+            <!-- Use ngModel for two-way binding -->
+            <select
+              class="form-select"
+              id="originPremId"
+              [(ngModel)]="movement.newOriginPremId"
+              name="newOriginPremId"
+              required
+            >
+              <option *ngFor="let id of validIds" [value]="id">{{ id }}</option>
+            </select>
+          </td>
+          <td>
+            <!-- Use ngModel for two-way binding -->
+            <select
+              class="form-select"
+              id="destinationPremId"
+              [(ngModel)]="movement.newDestinationPremId"
+              name="newDestinationPremId"
+              required
+            >
+              <option *ngFor="let id of validIds" [value]="id">{{ id }}</option>
+            </select>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="movement.newNumItemsMoved"
+              name="newNumItemsMoved"
+              required
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="movement.newMovementReason"
+              name="newMovementReason"
+              required
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="movement.newShipmentsStartDate"
+              name="newShipmentsStartDate"
+              required
+              pattern="\d{4}-\d{2}-\d{2}"
+            />
+          </td>
+          <!-- Add error messages for validations -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CRUD Controls -->
+  <div class="crud-controls" *ngIf="!addRowClicked && !deleteClicked">
+    <!-- Add Button -->
+    <div class="addButton" (click)="addRow()">
+      <div class="custom-button" *ngIf="!addRowClicked">
+        <h5>Add Record</h5>
+        <i class="bi bi-plus-square-fill"></i>
+      </div>
+    </div>
+    <!-- Delete Button -->
+    <div class="deleteButton" (click)="deleteClick()">
+      <div class="custom-button">
+        <h5>Delete Record</h5>
+        <i class="bi bi-x-square-fill"></i>
+      </div>
+    </div>
+  </div>
+  <div class="crud-controls" *ngIf="addRowClicked">
+    <!-- Submit Button -->
+    <div class="addButton" (click)="onSubmit(movement)">
+      <div class="custom-button">
+        <h5>Submit</h5>
+      </div>
+    </div>
+    <!-- Cancel Button -->
+    <div class="deleteButton" (click)="addRow()">
+      <div class="custom-button">
+        <h5>Cancel</h5>
+      </div>
+    </div>
+  </div>
+  <div class="crud-controls" *ngIf="deleteClicked" (click)="deleteClick()">
+    <!-- Cancel Button -->
+    <div class="deleteButton">
+      <div class="custom-button">
+        <h5>Cancel</h5>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="deleteClicked" class="helper">
+    <span>Click on the record you want to delete.</span>
+    <span style="color: red; font-size: large"
+      >This action is irreversible!</span
+    >
+    <span>Click on Cancel to stop</span>
+  </div>
+</div>

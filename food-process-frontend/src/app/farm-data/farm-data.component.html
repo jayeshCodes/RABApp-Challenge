@@ -1,0 +1,137 @@
+<div class="main-container">
+    <div class="crud-container">
+      <div class="filler"></div>
+      <div class="heading">
+        <h4>Farm Data</h4>
+      </div>
+      <div class="navigation" (click)="navigateToFarmMap()">
+        <!-- Replace the button with an icon or SVG -->
+        <div class="custom-button">
+            <h5>Map View</h5>
+            <i class="bi bi-map-fill"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Farm Modal -->
+    <div
+      class="modal fade"
+      id="addFarmModal"
+      tabindex="-1"
+      aria-labelledby="addFarmModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="addFarmModalLabel">
+              Add Farm
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddFarm(addForm)">
+              <div class="mb-3">
+                <label for="farmID" class="form-label">Farm ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="farmIDInput"
+                  ngModel
+                  name="farmId"
+                  required
+                  minlength="7"
+                  maxlength="7"
+                  pattern="[A-Za-z0-9]{7}"
+                  aria-describedby="farmIDHelp"
+                />
+                <div id="farmIDHelp" class="form-text">
+                  Please enter ID in the format: ABCD123
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="numberOfUnits" class="form-label"
+                  >Number of Units</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="numberOfUnitsInput"
+                  ngModel
+                  name="numberOfUnits"
+                  required
+                  min="1"
+                />
+              </div>
+              <div class="form-buttons hstack">
+                <div class="p-2">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    id="close-addFarmModal"
+                  >
+                    Close
+                  </button>
+                </div>
+                <div class="p-2">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    [disabled]="addForm.invalid"
+                  >
+                    Add Farm
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Farm Table -->
+    <div class="table-container">
+      <table class="table table-striped table-striped-columns table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Premise ID</th>
+            <th scope="col">Number of Units</th>
+            <th *ngIf="showUpdateIcons"></th>
+            <th *ngIf="showDeleteIcons"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let farm of farms; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{ farm.farm_company }}</td>
+            <td>{{ farm.premiseid }}</td>
+            <td>{{ farm.total_animal }}</td>
+            <td *ngIf="showUpdateIcons">
+              <button
+                class="btn btn-info"
+                data-bs-toggle="modal"
+              >
+                Update
+              </button>
+            </td>
+            <td *ngIf="showDeleteIcons">
+              <button
+                class="btn btn-danger"
+                (click)="deleteFarm(farm.premiseid)"
+              >
+                Delete <i class="bi bi-trash-fill"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

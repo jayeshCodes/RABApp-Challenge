@@ -1,0 +1,43 @@
+<div class="login-container">
+  <div class="login-form">
+    <div class="heading">
+      <h2>RAB App</h2>
+    </div>
+    <div class="username-div">
+      <form [formGroup]="loginForm">
+        <div class="mb-3">
+          <h5 for="exampleInputEmail1" class="form-label"
+            >Email address</h5
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            formControlName = "email"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <h5 for="exampleInputPassword1" class="form-label">Password</h5>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            formControlName ="password"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="buttons-container" (click)="onSubmit()">
+      <div class="login-button-div">
+        <h5>Login</h5>
+      </div>
+      <div class="signup-button-div" (click)="navigateToSignup()">
+        <h5>New User? Sign Up!</h5>
+      </div>
+    </div>
+  </div>
+</div>

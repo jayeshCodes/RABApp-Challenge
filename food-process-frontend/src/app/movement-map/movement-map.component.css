@@ -1,0 +1,68 @@
+.map-wrap {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 16vh); /* calculate height of the screen minus the heading */
+  }
+  
+  .map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .header {
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Add cursor pointer for better UX */
+  }
+  
+  .heading {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .filler {
+    display: flex;
+    flex: 1;
+  }
+  
+  .custom-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Add padding for better click/tap area */
+  }
+  
+  .navigation:hover {
+    background-color: #e0e0e0; /* Change background color on hover */
+  }
+  
+  .custom-button h5,
+  .custom-button i {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
+  
+  h5 {
+    margin: 0;
+  }
+  
+
+  
