@@ -1,0 +1,47 @@
+version: '3'
+
+# Define services
+services:
+  postgres-db:
+    image: "postgres:9.6-alpine"
+    container_name: postgres-db
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=animal_data
+      - POSTGRES_USER=myusername
+      - POSTGRES_PASSWORD=mysecretpassword
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend-App
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_SERVER=postgres-db
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db/animal_data
+      - POSTGRES_USER=myusername
+      - POSTGRES_PASSWORD=mysecretpassword
+
+    depends_on:
+      - postgres-db
+    links:
+      - postgres-db
+
+  frontend:
+    build:
+      context: ./food-process-frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+# Volumes for DB data
+volumes:
+  postgres-db:
