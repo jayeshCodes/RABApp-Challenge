@@ -41,7 +41,7 @@ Movement Data:
 ![Movement Data](movement-data.png)
 
 ## Features
-1. Users can register on the application and use those credentials for logging into the app.
+1. Users can register on the application and use those credentials for logging into the app. Please refer to the Database schema section for the database schema.
 2. The app uses token based authorization to verify whether the user has access to the main app.
 3. The Farm Data view provides a visual representation(map) as well as a table to describe Farm Data.
 4. The Movement Data view provides a visaulization of all the movements occuring between farms using an interactive map.
