@@ -151,21 +151,22 @@ Movement Data:
 ## Future Improvements
 1. Dockerization of the entire app for easier use.
 2. Addition of more tables to the current database, which include but are not limited to cities, states and addresses, which will be linked to the farm database, so that the user can easily add movement records by just using the farm premise ID and the backend will add the rest based on the premise ID(currently implemented with the farm coordinates, i.e., based on the premise ID of the farm, the coordinates are added automatically by the backend to the movement database).
-3. Addition of user roles, such as admin so that the farm data can be edited in the frontend as well. Current access level is user, where the user can only add and delete records in the movement database but not update any record or perform any crud operations for the farm data (crud operations have been implemented in the backend for both the farm and movement data) - can be done by addition of a roles attribute to the app_user table.
-4. Addition of env files to the frontend hide api keys.
-5. Incorporating a search by ID feature in the frontend (already implemented in the backend).
-6. Addition of animations to make the UI more interactive and engaging - can be achieved by using @Media in css along with transitions.
-7. Addition of hover feature on the map component for better UX and clarity - can be achieved by using maptiler sdk and maplibre-gl by adding a "hover" layer.
-8. Incorporating keyboard controls to improve usage times of the app and UX of the app - can be achieved by using Keyboard listeners in the frontend.
-9. Incorporating more colors in the UI to make the UX more satisfying and engaging.
-10. Addition of a 'forgot password' functionality to improve UX.
-11. Addition of a "Settings" page for the admin to add users, remove users and edit permissions - Can be done by adding a new component to angular frontend, and adding a service which implements these functionalities in the backend.
-12. Addition of a "Profile" page for the user to edit their profile details, such as name and check their permissions - Can be done by adding a new component to the frontend, and a service to read and update user details.
-13. Addition of a sort functionality to sort the movement records by date - can be done by calling a sort api from the backend which uses the JPA Repository methods.
-14. Fixing the testing library issues in the spring boot app - diagnose why Data JPA Test is not being detected.
-15. Fixing the testing library issues in the angular app - diagnose why spec.ts files are not being detetcted by karma-jasmine.
-16. Addition of a logo for branding purposes.
-17. Improving styles by consistent spacing between text and symbols.
+3. Addition of more constraints to the database entities for a more robust backend. For example - not null constraints in the movement table for origin and premise ids.
+4. Addition of user roles, such as admin so that the farm data can be edited in the frontend as well. Current access level is user, where the user can only add and delete records in the movement database but not update any record or perform any crud operations for the farm data (crud operations have been implemented in the backend for both the farm and movement data) - can be done by addition of a roles attribute to the app_user table.
+5. Addition of env files to the frontend hide api keys.
+6. Incorporating a search by ID feature in the frontend (already implemented in the backend).
+7. Addition of animations to make the UI more interactive and engaging - can be achieved by using @Media in css along with transitions.
+8. Addition of hover feature on the map component for better UX and clarity - can be achieved by using maptiler sdk and maplibre-gl by adding a "hover" layer.
+9. Incorporating keyboard controls to improve usage times of the app and UX of the app - can be achieved by using Keyboard listeners in the frontend.
+10. Incorporating more colors in the UI to make the UX more satisfying and engaging.
+11. Addition of a 'forgot password' functionality to improve UX.
+12. Addition of a "Settings" page for the admin to add users, remove users and edit permissions - Can be done by adding a new component to angular frontend, and adding a service which implements these functionalities in the backend.
+13. Addition of a "Profile" page for the user to edit their profile details, such as name and check their permissions - Can be done by adding a new component to the frontend, and a service to read and update user details.
+14. Addition of a sort functionality to sort the movement records by date - can be done by calling a sort api from the backend which uses the JPA Repository methods.
+15. Fixing the testing library issues in the spring boot app - diagnose why Data JPA Test is not being detected.
+16. Fixing the testing library issues in the angular app - diagnose why spec.ts files are not being detetcted by karma-jasmine.
+17. Addition of a logo for branding purposes.
+18. Improving styles by consistent spacing between text and symbols.
 
 ## Target Role
 Fullstack developer
