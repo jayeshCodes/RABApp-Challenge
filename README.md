@@ -25,6 +25,7 @@ This application visualizes and manages the movement records of livestock betwee
 2. Node version - 22.1.0
 
 ## UI Screenshots
+![Login Page](login.png)
 
 ## Features
 1. Users can register on the application and use those credentials for logging into the app.
