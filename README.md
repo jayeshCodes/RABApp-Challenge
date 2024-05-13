@@ -1,54 +1,67 @@
-# Programming challenge
+# RAB APP
+This application visualizes and manages the movement records of livestock between different farms.
 
-## Background
-In food animal systems, animals move to different farms as they age. Each farm has a unique ID and must keep a record of the movement of animals from one farm to another. Here, we present some fictitious records of movements among pig farms.
+## How to Run
+1. Clone this repository
+2. Execute `docker-compose up` in the root folder containing the `docker-compose.yml` file(not working as expected as of now, please check How to Run - Alternate).
 
-## Mandatory
- #### Task needs to run with "docker compose up"
+## How to Run - Alternate
+1. Clone this repository.
+2. Check the requirements section.
+3. To start the backend server, navigate to `backend/src/main/resources` and edit the application.properties file with appropriate datasource, username and password for postgres the postgres server you want to use.
+4. Navigate back to `backend` and in the terminal, run the following command: `mvn spring-boot:run`
+5. The backend should start up at `port 8080` of your localhost and create the required entities in the database.
+6. Please confirm that your local postgres database is up and running before starting the backend.
+7. To start the frontend, open another terminal in the RABApp-Challenge folder and navigate to `food-process-frontend`
+8. Run `npm install`
+9. Run `npm start` or `ng serve`
+10. The frontend should start at `port 4200` of your localhost.
+11. In your browser, go to `http://localhost:4200/` to start using the app.
+12. You may have to signup before you login.
+13. Please watch `demo.mp4` to get acquainted with the UI and it's functionalities.
 
-*Description of the data folder* 
+## Requirements:
+1. NPM version - 10.7.0
+2. Node version - 22.1.0
 
-*	*movements*: all records of animal movements 
-    -  new_originpremid - column with the ID of the origin farm 
-    -  new_destinationpremid - column with the ID of the destination farm 
-    -  new_numitemsmovedcolumn - column with the number of moved animals
+## UI Screenshots
 
-*	*population*: complete list of the farms
-    -  premiseid - column with the ID of the farms
-    -  total_animal - column with the current number of animals for the farm
+## Features
+1. Users can register on the application and use those credentials for logging into the app.
+2. The app uses token based authorization to verify whether the user has access to the main app.
+3. The Farm Data view provides a visual representation(map) as well as a table to describe Farm Data.
+4. The Movement Data view provides a visaulization of all the movements occuring between farms using an interactive map.
+5. The Table View within the Movement Data view provides the user with options to add or delete records with appropriate validations. For example, only valid premise IDs can be chosen while adding new records.
+6. The changes made in the Movement Data reflect in the Farm Data as well.
 
-## Challenge
-The challenge is to create a system to visualize and manage the movement records (CRUD Operations with appropriate error handling on the code, both UI and API). This
-system have to follow the requirements bellow:
+## App Design
+1. The app uses four main tables as of now with more tables to be integrated soon(check Future improvements section). The ERD of the current database schema is as follows.
+2. The Spring Boot app utilizes Spring Data JPA to get, post, put and delete records from both movement and farm data.
+3. The frontend is constructed using Angular(typescript) framework with bootstrap css and custom css elements.
+4. Maptiler SDK is used to implement the map features.
+5. Farm, Movement, Company and User Objects have been created in the frontend as well as backend to give a structure to the data.
 
-- Has to be composed of 3 components: a REST API, a SPA WEB client, and a relational database.
-- The relational database can be any database that you like, PostgreSQL, MariaDB, etc..
-- The data provided in this repo should be auto-imported into the database in a normalized schema. done
-- The REST API has to written in Java Spring Boot. done
-- The Web Client have to written in Angular.
-- The project should have an authentication system for both UI and API components. i.e. data from API shouldn't be accessible from the Network tab / Browser console.
-- The project should have atleast 2 unit test cases each for UI and API and 1 end-to-end test (UI) using testing frameworks like Cypress.
-- The project submitted should include appropriate documentation and a working video of the entire project. For the video, start from scratch. Clone the repo in a fresh location and run the project. Then, navigate the UI. Show API logs. Keep the browser console open on the side.
-- As mentioned earlier, the task should run with a single command. `docker compose up`.
+## Challenges Faced
+1. Dockerization of the backend is fails due to reasons unknown. Possible diagnosis - improper configuration of the application.properties file in the backend.
+2. Data JPA Test not being detected in the spring boot application even though the dependencies were configured properly.
+3. Karma-Jasmine find 0 specs even though karma has been configured properly.
+4. maplibre-gl, which was used to add visualization to the map component, does not use ECMA script which may throw errors during run time.
+5. Currently, the movement data doesn't take cities, states and addresses as inputs when new records are added from the frontend.
+6. Lack of animations in the frontend due to major usage of custom CSS rather than UI libraries(see Future Improvements section for the solution)
 
-## Bonus
-Bonus points will be awarded for implementing:
-- Role based access control
-    - Create atleast 2 roles. `ADMIN` and `USER`. ADMINS can add more users. USERS can't add more users.
-    - You can create a default admin account on app startup and provide the creds in project submission README file.
-    - Additionally, you can implement a `VIEWER` role that can perform only read operations.
-- Auto-updating Swagger API documentation
-    - Think of an appropriate place to host this (Within app? External?)
-    - How will authentication work for a user to be able to directly hit the API without going through the UI?
-    - Can this become a github action for keeping it always up-to-date? If so, feel free to include one such workflow in the project.  
-- Monitoring dashboard
-    - A tool to monitor and visualize user stats (visits, clicks/tab, on screen click-density, etc...).
-    - Feel free to be creative if you are attempting this.
-      
-*Note*: "If you are unable to implement the bonus section, include your ideas about the above questions in the README. Lay out the steps of how you would implement the same."
-
-## Evaluation 
-The submitted project will be evaluated considering your experience. For example, a
-person with a background in backend development will be evaluated with higher
-expectations of the API and database code. A UI person will be evaluated with
-higher expectations on the design of the UI. You need to clearly mention which role you are targetting in the Github repository / README that you submit as a part of the project. 
+## Future Improvements
+1. Dockerization of the entire app for easier use.
+2. Addition of more tables to the current database, which include but are not limited to cities, states and addresses, which will be linked to the farm database, so that the user can easily add movement records by just using the farm premise ID and the backend will add the rest based on the premise ID(currently implemented with the farm coordinates, i.e., based on the premise ID of the farm, the coordinates are added automatically by the backend to the movement database).
+3. Addition of user roles, such as admin so that the farm data can be edited in the frontend as well. Current access level is user, where the user can only add and delete records in the movement database but not update any record or perform any crud operations for the farm data (crud operations have been implemented in the backend for both the farm and movement data) - can be done by addition of a roles attribute to the app_user table.
+4. Addition of env files to the frontend hide api keys.
+5. Incorporating a search by ID feature in the frontend (already implemented in the backend).
+6. Addition of animations to make the UI more interactive and engaging - can be achieved by using @Media in css along with transitions.
+7. Addition of hover feature on the map component for better UX and clarity - can be achieved by using maptiler sdk and maplibre-gl by adding a "hover" layer.
+8. Incorporating keyboard controls to improve usage times of the app and UX of the app - can be achieved by using Keyboard listeners in the frontend.
+9. Incorporating more colors in the UI to make the UX more satisfying and engaging.
+10. Addition of a 'forgot password' functionality to improve UX.
+11. Addition of a "Settings" page for the admin to add users, remove users and edit permissions - Can be done by adding a new component to angular frontend, and adding a service which implements these functionalities in the backend.
+12. Addition of a "Profile" page for the user to edit their profile details, such as name and check their permissions - Can be done by adding a new component to the frontend, and a service to read and update user details.
+13. Addition of a sort functionality to sort the movement records by date - can be done by calling a sort api from the backend which uses the JPA Repository methods.
+14. Fixing the testing library issues in the spring boot app - diagnose why Data JPA Test is not being detected.
+15. Fixing the testing library issues in the angular app - diagnose why spec.ts files are not being detetcted by karma-jasmine.
