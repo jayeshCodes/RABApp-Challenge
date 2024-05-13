@@ -83,4 +83,4 @@ Movement Data:
 17. Improving styles by consistent spacing between text and symbols.
 
 ## Target Role
-Backend developer
+Fullstack developer
