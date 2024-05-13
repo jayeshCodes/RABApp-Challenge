@@ -55,7 +55,7 @@ Movement Data:
 ![Movement Data](movement-data.png)
 
 ## Features
-1. Users can register on the application and use those credentials for logging into the app. Please refer to the Database schema section for the database schema.
+1. Users can register on the application and use those credentials for logging into the app. 
 2. The app uses token based authorization to verify whether the user has access to the main app.
 3. The Farm Data view provides a visual representation(map) as well as a table to describe Farm Data.
 4. The Movement Data view provides a visaulization of all the movements occuring between farms using an interactive map.
@@ -63,7 +63,7 @@ Movement Data:
 6. The changes made in the Movement Data reflect in the Farm Data as well.
 
 ## App Design
-1. The app uses four main tables as of now with more tables to be integrated soon(check Future improvements section).
+1. The app uses four main tables as of now with more tables to be integrated soon(check Future improvements section). Please refer to the Database schema section for the database schema.
 2. The Spring Boot app utilizes Spring Data JPA to get, post, put and delete records from both movement and farm data.
 3. The frontend is constructed using Angular(typescript) framework with bootstrap css and custom css elements.
 4. Maptiler SDK is used to implement the map features.
