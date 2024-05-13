@@ -7,18 +7,19 @@ This application visualizes and manages the movement records of livestock betwee
 
 ## How to Run - Alternate
 1. Clone this repository.
-2. Check the requirements section.
-3. To start the backend server, navigate to `backend/src/main/resources` and edit the application.properties file with appropriate datasource, username and password for postgres the postgres server you want to use.
-4. Navigate back to `backend` and in the terminal, run the following command: `mvn spring-boot:run`
-5. The backend should start up at `port 8080` of your localhost and create the required entities in the database.
-6. Please confirm that your local postgres database is up and running before starting the backend.
-7. To start the frontend, open another terminal in the RABApp-Challenge folder and navigate to `food-process-frontend`
-8. Run `npm install`
-9. Run `npm start` or `ng serve`
-10. The frontend should start at `port 4200` of your localhost.
-11. In your browser, go to `http://localhost:4200/` to start using the app.
-12. You may have to signup before you login.
-13. Please watch `demo.mp4` to get acquainted with the UI and it's functionalities.
+2. Initialize the database - Refer to Database Initialization section for the same.
+3. Check the requirements section.
+4. To start the backend server, navigate to `backend/src/main/resources` and edit the application.properties file with appropriate datasource, username and password for postgres the postgres server you want to use.
+5. Navigate back to `backend` and in the terminal, run the following command: `mvn spring-boot:run`
+6. The backend should start up at `port 8080` of your localhost and create the required entities in the database.
+7. Please confirm that your local postgres database is up and running before starting the backend.
+8. To start the frontend, open another terminal in the RABApp-Challenge folder and navigate to `food-process-frontend`
+9. Run `npm install`
+10. Run `npm start` or `ng serve`
+11. The frontend should start at `port 4200` of your localhost.
+12. In your browser, go to `http://localhost:4200/` to start using the app.
+13. You may have to signup before you login.
+14. Please watch `demo.mp4` to get acquainted with the UI and it's functionalities.
 
 ## Database Initialization
 
