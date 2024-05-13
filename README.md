@@ -20,6 +20,19 @@ This application visualizes and manages the movement records of livestock betwee
 12. You may have to signup before you login.
 13. Please watch `demo.mp4` to get acquainted with the UI and it's functionalities.
 
+## Database Initialization
+
+To initialize the PostgreSQL database with the provided dump file (`database.sql`), follow these steps:
+
+1. **Ensure PostgreSQL is installed**: Make sure you have PostgreSQL installed on your system. You can download and install it from the [official website](https://www.postgresql.org/) if you haven't already.
+
+2. **Create a new database**: Use the `createdb` command to create a new empty database where you will import the dump file. Replace `your_database_name` with the desired name for your database: `createdb your_database_name`
+
+3. **Import the dump file**: Navigate to the directory where your `database.sql` file is located and use the `psql` command line tool to import the dump file into your newly created database. Replace `your_username` with your PostgreSQL username and `your_database_name` with the name of the database you created in step 2:`psql -U your_username -d your_database_name -f database.sql`
+
+4. **Verify**: Connect to your database using a PostgreSQL client (such as `psql` or pgAdmin) and verify that the import was successful by inspecting the tables and data.
+
+
 ## Requirements:
 1. NPM version - 10.7.0
 2. Node version - 22.1.0
