@@ -111,6 +111,23 @@ Movement Data:
 | new_movementreason     | character varying(255)      |          |         |
 | new_species            | character varying(255)      |          |         |
 | new_originaddress      | character varying(255)      |          |         |
+| new_origincity      | character varying(255)      |          |         |
+| new_originname      | character varying(255)      |          |         |
+| new_originpostalcode      | character varying(255)      |          |         |
+| new_originpremid      | character varying(255)      |          |         |
+| new_originstate      | character varying(255)      |          |         |
+| new_destinationaddress      | character varying(255)      |          |         |
+| new_destinationcity      | character varying(255)      |          |         |
+| new_destinationname      | character varying(255)      |          |         |
+| new_destinationpostalcode      | character varying(255)      |          |         |
+| new_destinationpremid      | character varying(255)      |          |         |
+| new_destinationstate      | character varying(255)      |          |         |
+| origin_lat      | double precision      |          |         |
+| origin_lon      | double precision      |          |         |
+| destination_lat      | double precision      |          |         |
+| destination_long      | double precision      |          |         |
+| new_numitemsmoved      | integer      |          |         |
+| new_shipmentsstartdate      | double precision      |          |         |
 
 **Indexes:**
 - `movement_pkey`: PRIMARY KEY, btree (id)
