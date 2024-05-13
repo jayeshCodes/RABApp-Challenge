@@ -12,7 +12,7 @@ COPY backend/src ./src/
 RUN mvn clean install -DskipTests
 
 # Use AdoptOpenJDK as the base image
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM adoptopenjdk/openjdk17:alpine-jre
 
 # Set the working directory in the container
 WORKDIR /app

@@ -48,6 +48,7 @@ h5{
     cursor: pointer;
 }
 
+/* centered for consistency reasons */
 .logout{
     display: flex;
     flex: 1;
