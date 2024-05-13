@@ -65,3 +65,4 @@ This application visualizes and manages the movement records of livestock betwee
 13. Addition of a sort functionality to sort the movement records by date - can be done by calling a sort api from the backend which uses the JPA Repository methods.
 14. Fixing the testing library issues in the spring boot app - diagnose why Data JPA Test is not being detected.
 15. Fixing the testing library issues in the angular app - diagnose why spec.ts files are not being detetcted by karma-jasmine.
+16. Addition of a logo for branding purposes.
