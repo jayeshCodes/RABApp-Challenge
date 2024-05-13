@@ -49,7 +49,13 @@ Movement Data:
 6. The changes made in the Movement Data reflect in the Farm Data as well.
 
 ## App Design
-1. The app uses four main tables as of now with more tables to be integrated soon(check Future improvements section).## Database Schema
+1. The app uses four main tables as of now with more tables to be integrated soon(check Future improvements section).
+2. The Spring Boot app utilizes Spring Data JPA to get, post, put and delete records from both movement and farm data.
+3. The frontend is constructed using Angular(typescript) framework with bootstrap css and custom css elements.
+4. Maptiler SDK is used to implement the map features.
+5. Farm, Movement, Company and User Objects have been created in the frontend as well as backend to give a structure to the data.
+
+## Database Schema
 
 ### Table: app_user
 
@@ -104,7 +110,7 @@ Movement Data:
 | account_company        | character varying(255)      |          |         |
 | new_movementreason     | character varying(255)      |          |         |
 | new_species            | character varying(255)      |          |         |
-| ...                    | ...                         | ...      | ...     |
+| new_originaddress      | character varying(255)      |          |         |
 
 **Indexes:**
 - `movement_pkey`: PRIMARY KEY, btree (id)
@@ -116,10 +122,6 @@ Movement Data:
 **Triggers:**
 - `movement_renumber_ids_trigger`: AFTER DELETE ON movement FOR EACH ROW EXECUTE FUNCTION renumber_ids()
 
-2. The Spring Boot app utilizes Spring Data JPA to get, post, put and delete records from both movement and farm data.
-3. The frontend is constructed using Angular(typescript) framework with bootstrap css and custom css elements.
-4. Maptiler SDK is used to implement the map features.
-5. Farm, Movement, Company and User Objects have been created in the frontend as well as backend to give a structure to the data.
 
 ## Challenges Faced
 1. Dockerization of the backend is fails due to reasons unknown. Possible diagnosis - improper configuration of the application.properties file in the backend.
