@@ -25,7 +25,20 @@ This application visualizes and manages the movement records of livestock betwee
 2. Node version - 22.1.0
 
 ## UI Screenshots
+Login/Signup Page:
 ![Login Page](login.png)
+![Signup Page](signup.png)
+![Signup creds](signup-cred.png)
+![Signup confirm](signup-confirm.png)
+
+Farm Data:
+![Farm Map](farm-map.png)
+![Farm Data](farm-data.png)
+
+Movement Data:
+![Movement Map](movement-map.png)
+![Movement Map Alt](movement-map-2.png)
+![Movement Data](movement-data.png)
 
 ## Features
 1. Users can register on the application and use those credentials for logging into the app.
