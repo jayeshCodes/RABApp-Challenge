@@ -49,7 +49,73 @@ Movement Data:
 6. The changes made in the Movement Data reflect in the Farm Data as well.
 
 ## App Design
-1. The app uses four main tables as of now with more tables to be integrated soon(check Future improvements section). The ERD of the current database schema is as follows.
+1. The app uses four main tables as of now with more tables to be integrated soon(check Future improvements section).## Database Schema
+
+### Table: app_user
+
+| Column   | Type                  | Nullable | Default               |
+|----------|-----------------------|----------|-----------------------|
+| id       | bigint                | not null | nextval('app_user_id_seq'::regclass) |
+| email    | character varying(255)|          |                       |
+| name     | character varying(255)|          |                       |
+| password | character varying(255)|          |                       |
+
+**Indexes:**
+- `app_user_pkey`: PRIMARY KEY, btree (id)
+
+---
+
+### Table: companies
+
+| Column       | Type                  | Nullable | Default               |
+|--------------|-----------------------|----------|-----------------------|
+| company_id   | bigint                | not null | nextval('company_id_seq'::regclass) |
+| company_name | character varying(100)|          |                       |
+
+**Indexes:**
+- `companies_pkey`: PRIMARY KEY, btree (company_id)
+
+---
+
+### Table: farm
+
+| Column          | Type               | Nullable | Default |
+|-----------------|--------------------|----------|---------|
+| premiseid       | character varying(7)| not null |         |
+| total_animal    | integer            |          |         |
+| farm_company    | character varying(255)|         |         |
+| farm_latitude   | double precision  |          |         |
+| farm_longitude  | double precision  |          |         |
+
+**Indexes:**
+- `farm_pkey`: PRIMARY KEY, btree (premiseid)
+
+**Referenced by:**
+- `movement`: FOREIGN KEY (new_destinationpremid) REFERENCES farm(premiseid)
+- `movement`: FOREIGN KEY (new_originpremid) REFERENCES farm(premiseid)
+
+---
+
+### Table: movement
+
+| Column                 | Type                        | Nullable | Default |
+|------------------------|-----------------------------|----------|---------|
+| id                     | integer                     | not null | nextval('movement_id_seq'::regclass) |
+| account_company        | character varying(255)      |          |         |
+| new_movementreason     | character varying(255)      |          |         |
+| new_species            | character varying(255)      |          |         |
+| ...                    | ...                         | ...      | ...     |
+
+**Indexes:**
+- `movement_pkey`: PRIMARY KEY, btree (id)
+
+**Foreign-key constraints:**
+- `movement_new_destinationpremid_fkey`: FOREIGN KEY (new_destinationpremid) REFERENCES farm(premiseid)
+- `movement_new_originpremid_fkey`: FOREIGN KEY (new_originpremid) REFERENCES farm(premiseid)
+
+**Triggers:**
+- `movement_renumber_ids_trigger`: AFTER DELETE ON movement FOR EACH ROW EXECUTE FUNCTION renumber_ids()
+
 2. The Spring Boot app utilizes Spring Data JPA to get, post, put and delete records from both movement and farm data.
 3. The frontend is constructed using Angular(typescript) framework with bootstrap css and custom css elements.
 4. Maptiler SDK is used to implement the map features.
