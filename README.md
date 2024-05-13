@@ -80,3 +80,4 @@ Movement Data:
 14. Fixing the testing library issues in the spring boot app - diagnose why Data JPA Test is not being detected.
 15. Fixing the testing library issues in the angular app - diagnose why spec.ts files are not being detetcted by karma-jasmine.
 16. Addition of a logo for branding purposes.
+17. Improving styles by consistent spacing between text and symbols.
